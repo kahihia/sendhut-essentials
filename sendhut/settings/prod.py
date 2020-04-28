@@ -22,9 +22,9 @@ AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=86400',
 }
-#AWS_STATIC_LOCATION = 'static'
-#STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_STATIC_LOCATION)
-#STATICFILES_STORAGE = 'sendhut.storage_backends.StaticStorage'
+AWS_STATIC_LOCATION = 'static'
+STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_STATIC_LOCATION)
+STATICFILES_STORAGE = 'sendhut.storage_backends.StaticStorage'
 
 DEFAULT_FILE_STORAGE = 'sendhut.storage_backends.MediaStorage'
 AWS_PUBLIC_MEDIA_LOCATION = 'media/public'
