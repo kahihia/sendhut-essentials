@@ -16,7 +16,7 @@ ENV = config('ENVIRONMENT')
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = config('DEBUG', default=True, cast=bool)
 
 TEMPLATE_DEBUG = config('TEMPLATE_DEBUG', default=False, cast=bool)
 
@@ -70,6 +70,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'sendhut.middleware.site',
     'sendhut.middleware.cart',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'sendhut.urls'
@@ -159,9 +160,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 STATIC_URL = '/static/'
-STATIC_ROOT = Path(BASE_DIR, 'staticfiles')
+STATIC_ROOT = Path(BASE_DIR, 'static/dist')
 STATICFILES_DIRS = [
-    Path(BASE_DIR, "static/dist")
+    Path(BASE_DIR, "static")
 ]
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
